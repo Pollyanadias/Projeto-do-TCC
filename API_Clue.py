@@ -71,3 +71,22 @@ class API_Clue:
                 return
         
         print("Não posso ajudar")
+        
+    
+    def fazer_acusacao(self, jogador, confidencial):
+        print(f"{jogador['nome']}, faça uma acusação.")
+        
+        while True:
+            arma = input("Digite o nome da arma: ").strip().lower()
+            local = input("Digite o nome do local: ").strip().lower()
+            suspeito = input("Digite o nome do suspeito: ").strip().lower()
+            acusacao = [arma, local, suspeito]
+            
+            if sorted(acusacao) == sorted(confidencial):
+                print(f"Acusação correta! {jogador['nome']} ganhou o jogo.")
+                return True
+            
+            else:
+                print("Acusação incorreta. Você está fora do jogo.")
+                jogador['ativo'] = False
+                return False
