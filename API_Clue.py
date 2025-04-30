@@ -31,7 +31,7 @@ class API_Clue:
                     
                     print("Carta inválida. Tente novamente.")
             
-            print(f"{jogador_Questionado['nome']} mostrou a carta: {carta_escolhida} para {Jogador_Perguntador['nome']}")
+            print(f"{jogador_Questionado['nome']} mostrou a carta: {carta_escolhida} para {jogador_Perguntador['nome']}")
             
             if carta_escolhida not in jogador_Perguntador['inocentes']:
                 jogador_Perguntador['inocentes'].append(carta_escolhida)
