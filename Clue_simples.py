@@ -35,10 +35,12 @@ for i in range(num_jogadores):
 for i, carta in enumerate(baralho):
     jogadores[i % num_jogadores]['cartas'].append(carta)
 
+
 # vai mostrar a mão de cada jogador
 def mostrar_mao(jogador):
     print(f"{jogador['nome']}, suas cartas: {jogador['cartas']}")
     print(f"Inocentes: {jogador['inocentes']}")
+
 
 # as funções para perguntar e acusar
 def perguntar(jogador_atual, jogadores):
@@ -60,6 +62,7 @@ def perguntar(jogador_atual, jogadores):
     else:
         print(f"{jogador_quest['nome']} disse: 'Não posso ajudá-lo.'")
 
+
 def acusar(jogador_atual):
     print(f"\n{jogador_atual['nome']} está fazendo uma acusação!")
     arma = input("Arma: ")
@@ -74,6 +77,7 @@ def acusar(jogador_atual):
         print(f"\n{jogador_atual['nome']} errou! Agora só poderá responder perguntas.")
         jogador_atual['ativo'] = False
         return False
+
 
 # Loop principal do jogo
 jogo_ativo = True
