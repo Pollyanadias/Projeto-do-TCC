@@ -84,9 +84,12 @@ class API_Clue:
             
             if sorted(acusacao) == sorted(confidencial):
                 print(f"Acusação correta! {jogador['nome']} ganhou o jogo.")
+               
                 return True
             
             else:
                 print("Acusação incorreta. Você está fora do jogo.")
                 jogador['ativo'] = False
+               
                 return False
+            
