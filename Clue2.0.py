@@ -2,19 +2,24 @@ import os
 import random
 from API_Clue import API_Clue
 
+## Definindo as cartas do jogo
 armas = ['castiçal', 'corda', 'faca', 'revólver']
 locais = ['cozinha', 'hall', 'sala de estar', 'sala de jantar', 'spa']
 suspeitos = ['green', 'mustard', 'peacock', 'plum', 'scarlet', 'white']
 baralho = armas + locais + suspeitos
 
+## instanciando a classe API_Clue
 clue = API_Clue(armas, locais, suspeitos)
 
+## definindo o baralho com as cartas confidenciais
 confidencial = [random.choice(armas), random.choice(locais), random.choice(suspeitos)]
 for carta in confidencial:
+    ## removendo as cartas confidenciais do baralho para que não sejam distribuídas para os jogadores
     baralho.remove(carta)
+## embaralhando o baralho    
 random.shuffle(baralho)
 
-
+## Definindo o número de jogadores
 while True:
     try:
         num_jogadores = int(input("Informe a quantidade de jogadores: "))
@@ -29,7 +34,7 @@ while True:
     except ValueError:
         print("Entrada inválida. Tente novamente.")
     
-        
+##definido as informações dos jogadores        
 jogadores = []
 for i in range(num_jogadores):
     jogadores.append({
@@ -40,7 +45,7 @@ for i in range(num_jogadores):
         'ativo': True
     })
 
-    
+## Distribuindo as cartas entre os jogadores, uma a uma    
 for i, carta in enumerate(baralho):
     jogadores[i % num_jogadores]['cartas'].append(carta)
         
@@ -49,6 +54,7 @@ def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
     
 
+## Função para mostrar a mão do jogador
 def mostar_mao(jogador):
     print(f"\n {jogador['nome']}, é a sua vez!")
     print("Cartas:, ", jogador['cartas'])
@@ -62,6 +68,7 @@ input()
 jogo_ativo = True
 turno = 0
 
+## Loop principal do jogo
 while jogo_ativo:
     jogador = jogadores[turno % num_jogadores]
     
