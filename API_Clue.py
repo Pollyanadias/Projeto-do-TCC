@@ -15,7 +15,7 @@ class API_Clue:
         cartas_comuns = [i for i in jogador_Questionado['cartas'] if i in cartas_Perguntadas]
         
         if cartas_comuns:
-            print(f"{jogador_Questionado['nome']} tem cartas que podem ajudar: {cartas_comuns}")
+            print(f"{jogador_Questionado['nome']} tem cartas que podem ajudar!")
             
             if len(cartas_comuns) == 1:
                 carta_escolhida = cartas_comuns[0]
