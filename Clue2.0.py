@@ -35,6 +35,6 @@ for i in range(num_jogadores):
         'nome': f'Jogador {i+1}',
         'cartas': [],
         'inocentes': [],
-        'notas': []
+        'notas': [],
         'ativo': True
     })
