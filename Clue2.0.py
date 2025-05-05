@@ -87,16 +87,24 @@ while jogo_ativo:
     
     mostar_mao(jogador)
     
-    acao = input("Escolha uma ação: (1) Fazer pergunta, (2) Fazer acusação: ").strip()
+    while True:
+        acao = input("Escolha uma ação: (1) Fazer pergunta, (2) Fazer acusação: ").strip()
     
-    if acao == '1':
-        clue.fazer_pergunta(jogador, jogadores)
-    
-    elif acao == '2':
+        if acao == '1':
+            clue.fazer_pergunta(jogador, jogadores)
+            
+            break
         
-        if clue.fazer_acusacao(jogador, confidencial):
-            jogo_ativo = False
-    
+        elif acao == '2':
+        
+            if clue.fazer_acusacao(jogador, confidencial):
+                jogo_ativo = False
+            
+            break    
+        
+        else:
+            print("Ação inválida. Tente novamente, escolha entre 1 e 2.")
+            
     input("Pressione ENTER para continuar...")
     turno += 1
     
