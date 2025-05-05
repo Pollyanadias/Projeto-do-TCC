@@ -87,6 +87,8 @@ while jogo_ativo:
     
     mostar_mao(jogador)
     
+    ## Pergunta ao jogador se ele quer fazer uma pergunta ou uma acusação
+    ## Além de evitar que o jogador escolha uma opção diferente de 1 ou 2
     while True:
         acao = input("Escolha uma ação: (1) Fazer pergunta, (2) Fazer acusação: ").strip()
     
